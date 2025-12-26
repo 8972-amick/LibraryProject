@@ -34,7 +34,7 @@ const Register = () => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://libraryproject-bm4n.onrender.com/api/auth/register",
         userData
       );
 
