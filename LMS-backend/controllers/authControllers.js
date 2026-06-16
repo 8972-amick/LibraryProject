@@ -82,7 +82,7 @@ export const loginUser = async (req, res) => {
       return res.status(403).json({ message: errorMsg, success: false });
 
     const isPasswordEqual = await bcrypt.compare(password, user.password);
-    if (!isPasswordEqual)
+    if (!isPasswordEqual)// This means the email was found but the password did not match
       return res.status(403).json({ message: errorMsg, success: false });
 
     const token = jwt.sign(
