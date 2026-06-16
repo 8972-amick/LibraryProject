@@ -43,7 +43,7 @@ export const registerUser = async (req, res) => {
         },
       });
     } catch (dbErr) {
-      console.error("DB error on create (register):", dbErr);
+      console.error("DB error on create (register):", dbErr);// This is likely a Prisma error, such as a unique constraint violation
       return res.status(500).json({
         message: "Database error",
         success: false,
@@ -67,7 +67,7 @@ export const registerUser = async (req, res) => {
   } catch (error) {
     console.error("🔥 Prisma Error:", error);
     res.status(500).json({ message: "Internal server error", success: false });
-  }
+  }// This catch block is for unexpected errors that aren't caught by the specific try-catch blocks above, such as issues with bcrypt or jwt.
 };
 
 export const loginUser = async (req, res) => {
