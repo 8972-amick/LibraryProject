@@ -18,7 +18,7 @@ router.post(
   verifyToken,
   allowRoles("librarian"),
   upload.single("photo"),
-  createBook
+  createBook,
 );
 
 // Get all books
@@ -29,12 +29,11 @@ router.put(
   "/:id",
   verifyToken,
   allowRoles("librarian"),
-  upload.single("photo"),
-  updateBook
+  upload.single("photo"),// Handle new image upload if provided
+  updateBook,
 );
 
 // Delete book
 router.delete("/:id", verifyToken, allowRoles("librarian"), deleteBook);
 
 export default router;
-
