@@ -13,7 +13,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = ["http://localhost:5173", "http://localhost:8081","https://libraryproject-1-9pi6.onrender.com"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:8081",
+  "https://libraryproject-1-9pi6.onrender.com",
+];
 
 app.use(
   cors({
@@ -27,7 +31,7 @@ app.use(
       return callback(null, true);
     },
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
@@ -51,9 +55,7 @@ const start = async () => {
   try {
     await prisma.$connect();
     console.log("✅ Prisma connected");
-    app.listen(PORT, () =>
-      console.log(`🚀 Server running on port ${PORT}`)
-    );
+    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
   } catch (err) {
     console.error("❌ Prisma connection failed:");
     console.error(err.message || err);
