@@ -95,10 +95,10 @@ export const loginUser = async (req, res) => {
       message: "Login Success",// This means both email and password were correct
       success: true,
       token,
-      user: { id: user.id, name: user.name, role: user.role },
+      user: { id: user.id, name: user.name, role: user.role },// We return only safe user info, excluding password and other sensitive data
     });
   } catch (error) {
     console.error("🔥 Prisma Error:", error);
-    res.status(500).json({ message: "Internal server error", success: false });
+    res.status(500).json({ message: "Internal server error", success: false });// This catch block is for unexpected errors that aren't caught by the specific try-catch blocks above, such as issues with bcrypt or jwt.
   }
 };
