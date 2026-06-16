@@ -92,7 +92,7 @@ export const loginUser = async (req, res) => {
     );
 
     res.status(200).json({
-      message: "Login Success",
+      message: "Login Success",// This means both email and password were correct
       success: true,
       token,
       user: { id: user.id, name: user.name, role: user.role },
