@@ -58,8 +58,8 @@ const LBar = () => {
             to="/librarian/managebooks"
             className={({ isActive }) =>
               isActive
-                ? "text-sm font-bold text-blue-400"
-                : "text-sm text-black font-semibold hover:text-blue-500 transition"
+                ? "text-lg font-bold text-blue-400"
+                : "text-lg text-black font-semibold hover:text-blue-500 transition"
             }
           >
             📘 Manage Books
