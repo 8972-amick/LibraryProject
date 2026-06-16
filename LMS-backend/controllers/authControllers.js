@@ -88,7 +88,7 @@ export const loginUser = async (req, res) => {
     const token = jwt.sign(
       { id: user.id, role: user.role },
       process.env.JWT_SECRET,
-      { expiresIn: "7d" },
+      { expiresIn: "7d" },// This token will be used for authenticating future requests and contains the user's ID and role, which can be used for authorization checks on protected routes.
     );
 
     res.status(200).json({
